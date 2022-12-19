@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev":"nodemon index"
+    "dev":"nodemon deep"
   },
   "author": "Deepak Patel",
   "license": "ISC",
