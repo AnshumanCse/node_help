@@ -1,77 +1,50 @@
-// routing
 const express = require('express')
-const app = express();
-const products = require('./data')
+const app = express()
 const port = 8000;
 
+// route params
+// /:type(post | article)/:id
 
-// routes 
-app.get('/', (req,res) => {
-    res.status(200).json(products)
-});
-
-// all
-// app.all('/sabkuchh', (req,res) => {
-//     res.send('Sabkuchh')
-// })
-// string pattern path
-// app.all('/ab?cd', (req,res) => {
-//     res.send('<h1>Page Found!</h1>')
+// app.get('/student/:product/:id([0-9]){2}', (req,res) => {
+//     console.log(req.params);
+//     const { product,id } = req.params;
+//     res.json(`Product ${product} and id is ${id}`)
 // })
 
-// regular expression
-// app.all(/a/, (req,res) => {
-//     res.send('<h1>Regex</h1>')
+// app.get('/train/:from-:to', (req,res) => {
+//     console.log(req.params)
+//     const { from,to } = req.params;
+//     res.send(`Travelling from : ${from} to ${to}`)
 // })
 
-// app.all('*', (req,res) => {
-//     res.send('<h1>Page Not Found!</h1>')
+// app.param()
+
+// app.param('id',(req,res,next,id) => {
+//     console.log(`Id: ${id}`)
+//     next()
+// })
+// app.get('/user/:id',(req,res) => {
+//     console.log("This is user id")
+//     res.send("Response Ok")
 // })
 
-// more than one callback
-// app.get('/cb', (req,res,next) => {
-//     console.log('First callback')
+// app.params using arrays
+// app.param(['id','page'], (req,res,next,value) => {
+//     console.log(`Called only once: ${value}`)
 //     next()
-// }, (req,res,next) => {
-//     console.log("Second callback")
-//     next()
-//     // res.send('More than one callback')
-// },
-// (req,res) => {
-//     console.log("Third callback")
-//     res.send('More than one callback')
-// },
-// )
+// } )
 
-// An array of callback
+// app.get('/user/:id/:page', (req,res) => {
+//     console.log("Working")
+//     res.send('REsponse OK')
+// })
 
-// const cb1 = (req,res,next) => {
-//     console.log("first callback")
-//     next()
-// }
-// const cb2 = (req,res,next) => {
-//     console.log("Second callback")
-//     next()
-// }
-// const cb3 = (req,res) => {
-//     console.log("Third callback")
-//     res.send('An array of callback example')
-// }
-
-// app.get('/callback',[cb1,cb2,cb3])
-
-// chained route callback
-
-app.route('/student')
-.get((req,res) => {
-    res.send('All Student')
+// query string
+app.get('/product', (req,res) => {
+    console.log(req.query)
+    res.send(`Everything is ok `)
 })
-.post((req,res) => {
-    res.send('Post ')
-})
-.put((req,res) => {
-    res.send('Update')
-})
+
 
 
 
