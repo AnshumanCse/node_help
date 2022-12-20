@@ -11,9 +11,68 @@ app.get('/', (req,res) => {
 });
 
 // all
-app.all('/sabkuchh', (req,res) => {
-    res.send('Sabkuchh')
+// app.all('/sabkuchh', (req,res) => {
+//     res.send('Sabkuchh')
+// })
+// string pattern path
+// app.all('/ab?cd', (req,res) => {
+//     res.send('<h1>Page Found!</h1>')
+// })
+
+// regular expression
+// app.all(/a/, (req,res) => {
+//     res.send('<h1>Regex</h1>')
+// })
+
+// app.all('*', (req,res) => {
+//     res.send('<h1>Page Not Found!</h1>')
+// })
+
+// more than one callback
+// app.get('/cb', (req,res,next) => {
+//     console.log('First callback')
+//     next()
+// }, (req,res,next) => {
+//     console.log("Second callback")
+//     next()
+//     // res.send('More than one callback')
+// },
+// (req,res) => {
+//     console.log("Third callback")
+//     res.send('More than one callback')
+// },
+// )
+
+// An array of callback
+
+// const cb1 = (req,res,next) => {
+//     console.log("first callback")
+//     next()
+// }
+// const cb2 = (req,res,next) => {
+//     console.log("Second callback")
+//     next()
+// }
+// const cb3 = (req,res) => {
+//     console.log("Third callback")
+//     res.send('An array of callback example')
+// }
+
+// app.get('/callback',[cb1,cb2,cb3])
+
+// chained route callback
+
+app.route('/student')
+.get((req,res) => {
+    res.send('All Student')
 })
+.post((req,res) => {
+    res.send('Post ')
+})
+.put((req,res) => {
+    res.send('Update')
+})
+
 
 
 app.listen(port, () => {
