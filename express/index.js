@@ -4,14 +4,16 @@ const logger = require('./middleware')
 const auth = require('./autharize')
 const morgan  = require('morgan')
 const { people } = require('./data')
+const join = require('path')
 
 const port = 8000;
 
 // static assets
 app.use(express.static('./public'))
 
+
 app.get('/api/people', (req,res) => {
-    res.status(200).json({success:true,data:people})
+    res.status(200).json(people)
 })
 
 
