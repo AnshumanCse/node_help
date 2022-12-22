@@ -6,10 +6,12 @@ const {join} = require('path')
 
 
 
+// views file
+
+app.set('view engine','ejs')
+
 // static files
-console.log(join(process.cwd(), 'public'))
-// app.use(express.static(join(process.cwd(), 'public')))
-// virtual path 
+ 
 app.use('/static',express.static(join(process.cwd(), 'public')))
 
 // individual files 
