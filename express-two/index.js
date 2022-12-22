@@ -1,49 +1,25 @@
 const express = require('express')
 const app = express()
 const port = 8000;
+const web = require('./routes/web')
+const {join} = require('path')
 
-// route params
-// /:type(post | article)/:id
 
-// app.get('/student/:product/:id([0-9]){2}', (req,res) => {
-//     console.log(req.params);
-//     const { product,id } = req.params;
-//     res.json(`Product ${product} and id is ${id}`)
-// })
 
-// app.get('/train/:from-:to', (req,res) => {
-//     console.log(req.params)
-//     const { from,to } = req.params;
-//     res.send(`Travelling from : ${from} to ${to}`)
-// })
+// static files
+console.log(join(process.cwd(), 'public'))
+// app.use(express.static(join(process.cwd(), 'public')))
+// virtual path 
+app.use('/static',express.static(join(process.cwd(), 'public')))
 
-// app.param()
+// individual files 
+// app.use('/css',express.static(join(process.cwd(), 'public')))
 
-// app.param('id',(req,res,next,id) => {
-//     console.log(`Id: ${id}`)
-//     next()
-// })
-// app.get('/user/:id',(req,res) => {
-//     console.log("This is user id")
-//     res.send("Response Ok")
-// })
+// app.use(express.static('public'))
 
-// app.params using arrays
-// app.param(['id','page'], (req,res,next,value) => {
-//     console.log(`Called only once: ${value}`)
-//     next()
-// } )
 
-// app.get('/user/:id/:page', (req,res) => {
-//     console.log("Working")
-//     res.send('REsponse OK')
-// })
-
-// query string
-app.get('/product', (req,res) => {
-    console.log(req.query)
-    res.send(`Everything is ok `)
-})
+// routes 
+app.use('/',web)
 
 
 

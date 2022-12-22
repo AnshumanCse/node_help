@@ -1,0 +1,18 @@
+// static files
+app.use(express.static('public'))
+
+// static files
+console.log(join(process.cwd(), 'public'))
+// app.use(express.static(join(process.cwd(), 'public')))
+// virtual path 
+app.use('/static',express.static(join(process.cwd(), 'public')))
+// app.use(express.static('public'))
+
+
+
+
+const {join} = require("path");
+
+const homeController = (req, res) => {
+  res.sendFile(join(process.cwd(), "views", "index.html"));
+};
