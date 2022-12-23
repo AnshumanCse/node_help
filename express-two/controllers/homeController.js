@@ -5,7 +5,11 @@
 // };
 
 const homeController = (req,res) => {
-  res.render('index',{'name':'Deepak'})
+  // const data = {
+  //   name:'deepal',
+  //   id:20
+  // }
+  res.render('index',{'title':'Home'})
 }
 
 module.exports =  homeController ;

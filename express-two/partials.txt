@@ -1,0 +1,58 @@
+<body>
+
+<%- include('./partials/navigation.ejs) %>
+</body>
+
+
+
+
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <hr>
+    <h1>Home Page</h1>
+    <img src="static/images/men2.jpeg" alt="">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus eligendi fugiat iusto hic quibusdam, quia quod asperiores officia odio ullam est nostrum adipisci sed expedita, debitis dolorum reprehenderit, dicta aspernatur.</p>
+    <p>
+        <!-- // display variales  -->
+        <%= name %>
+      
+    </p>
+    <h2>
+        <!-- creating variables  -->
+        <% var i = 10; %>
+
+        <!-- displaying  -->
+        <%= i %>
+
+        <!-- // comment  -->
+        <%# comment will not be seen %>
+
+    </h2>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis eaque asperiores soluta aut esse mollitia inventore earum molestiae voluptate at.
+    </p>
+    <h4>
+        <!-- if else  -->
+
+        <!-- <% if(id == 20) {%>
+            hello <%= id %>
+        <% } %> -->
+
+        <!-- if else  -->
+
+        <!-- <% if(id==20) {%>
+            This is id <%= id %>
+            <%} else { %>
+                This is not
+                <% } %> -->
+
+                <!-- // for loop  -->
+                <% for(i=0;i<=5;i++) { %>
+                    Hello deepak
+                    <% }%>
+
+
+    </h4>
+   
+</body>
+</html>
