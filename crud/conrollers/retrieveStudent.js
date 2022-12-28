@@ -40,7 +40,10 @@ const getAllDoc = async () => {
 // const result = await StudentModel.find({age: {$in: [30,25]}})
 
 // logical operators
-const result = await StudentModel.find({$and:[{age:35}]})
+// const result = await StudentModel.find({$and:[{age:35}]})
+// const result = await StudentModel.find({$and: [{age: {$gt: 24}}]})
+const result = await StudentModel.find({age: {$not: {$gt:25}}})
+// const result = await StudentModel.find({$or: [{age: {$gt: 24}}]})
 // const result = await StudentModel.find().skip(1)
   console.log(result)
 //   console.log(result);
